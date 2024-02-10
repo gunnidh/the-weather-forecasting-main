@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: gunnidh-kaur-weather-project
 spec:
-  replicas: 10
+  replicas: 3
   selector:
     matchLabels:
       app: gunnidh_kaur_bits_id_2022ab12539
