@@ -1,0 +1,152 @@
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ minikube start
+😄  minikube v1.32.0 on Microsoft Windows 11 Home Single Language 10.0.22621.3007 Build 22621.3007
+✨  Automatically selected the docker driver
+📌  Using Docker Desktop driver with root privileges
+👍  Starting control plane node minikube in cluster minikube
+🚜  Pulling base image ...
+🔥  Creating docker container (CPUs=2, Memory=3900MB) ...
+🐳  Preparing Kubernetes v1.28.3 on Docker 24.0.7 ...
+    ▪ Generating certificates and keys ...
+    ▪ Booting up control plane ...
+    ▪ Configuring RBAC rules ...
+🔗  Configuring bridge CNI (Container Networking Interface) ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ minikube docker-env
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://127.0.0.1:49858"
+export DOCKER_CERT_PATH="C:\Users\Ajay\.minikube\certs"
+export MINIKUBE_ACTIVE_DOCKERD="minikube"
+
+# To point your shell to minikube's docker-daemon, run:
+# eval $(minikube -p minikube docker-env)
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ eval $(minikube -p minikube docker-env)
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ docker build -t local/gunnidh-kaur-bits-id-2022ab12539:v1 .
+[+] Building 58.4s (12/12) FINISHED                                                                                                                                                                          docker:default
+ => [internal] load .dockerignore                                                                                                                                                                                      0.1s
+ => => transferring context: 61B                                                                                                                                                                                       0.0s 
+ => [internal] load build definition from Dockerfile                                                                                                                                                                   0.1s 
+ => => transferring dockerfile: 528B                                                                                                                                                                                   0.0s 
+ => [internal] load metadata for docker.io/library/node:16-alpine                                                                                                                                                      3.1s 
+ => [auth] library/node:pull token for registry-1.docker.io                                                                                                                                                            0.0s
+ => [1/6] FROM docker.io/library/node:16-alpine@sha256:a1f9d027912b58a7c75be7716c97cfbc6d3099f3a97ed84aa490be9dee20e787                                                                                                3.8s
+ => => resolve docker.io/library/node:16-alpine@sha256:a1f9d027912b58a7c75be7716c97cfbc6d3099f3a97ed84aa490be9dee20e787                                                                                                0.0s 
+ => => sha256:72e89a86be58c922ed7b1475e5e6f151537676470695dd106521738b060e139d 1.16kB / 1.16kB                                                                                                                         0.0s 
+ => => sha256:2573171e0124bb95d14d128728a52a97bb917ef45d7c4fa8cfe76bc44aa78b73 6.73kB / 6.73kB                                                                                                                         0.0s 
+ => => sha256:7264a8db6415046d36d16ba98b79778e18accee6ffa71850405994cffa9be7de 3.40MB / 3.40MB                                                                                                                         0.4s 
+ => => sha256:eee371b9ce3ffdbb8aa703b9a14d318801ddc3468f096bb6cfeabbeb715147f9 36.63MB / 36.63MB                                                                                                                       1.9s 
+ => => sha256:93b3025fe10392717d06ec0d012a9ffa2039d766a322aac899c6831dd93382c2 2.34MB / 2.34MB                                                                                                                         1.0s 
+ => => sha256:a1f9d027912b58a7c75be7716c97cfbc6d3099f3a97ed84aa490be9dee20e787 1.43kB / 1.43kB                                                                                                                         0.0s 
+ => => extracting sha256:7264a8db6415046d36d16ba98b79778e18accee6ffa71850405994cffa9be7de                                                                                                                              0.1s 
+ => => sha256:d9059661ce70092af66d2773666584fc8addcb78a2be63f720022f4875577ea9 452B / 452B                                                                                                                             1.1s 
+ => => extracting sha256:eee371b9ce3ffdbb8aa703b9a14d318801ddc3468f096bb6cfeabbeb715147f9                                                                                                                              1.6s
+ => => extracting sha256:93b3025fe10392717d06ec0d012a9ffa2039d766a322aac899c6831dd93382c2                                                                                                                              0.1s
+ => => extracting sha256:d9059661ce70092af66d2773666584fc8addcb78a2be63f720022f4875577ea9                                                                                                                              0.0s
+ => [internal] load build context                                                                                                                                                                                      0.1s
+ => => transferring context: 3.11MB                                                                                                                                                                                    0.1s
+ => [2/6] WORKDIR /app                                                                                                                                                                                                 0.2s 
+ => [3/6] COPY package*.json ./                                                                                                                                                                                        0.0s 
+ => [4/6] RUN npm install                                                                                                                                                                                             23.9s 
+ => [5/6] COPY . .                                                                                                                                                                                                     0.1s 
+ => [6/6] RUN npm run build                                                                                                                                                                                           18.9s 
+ => exporting to image                                                                                                                                                                                                 8.3s 
+ => => exporting layers                                                                                                                                                                                                8.3s 
+ => => writing image sha256:371c9ec654ac927e542c0e0e60ac3309f917d5dcdb6d279005c40eafa56d157c                                                                                                                           0.0s 
+ => => naming to docker.io/local/gunnidh-kaur-bits-id-2022ab12539:v1                                                                                                                                                   0.0s 
+
+View build details: docker-desktop://dashboard/build/default/default/2jhud9v3mwd19jix7buzrvkeb
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ kubectl get pods
+No resources found in default namespace.
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ kubectl get nodes
+NAME       STATUS   ROLES           AGE   VERSION
+minikube   Ready    control-plane   20m   v1.28.3
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ kubectl apply -f deploy/deployment.yaml
+deployment.apps/gunnidh-kaur-weather-project created
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ docker images
+REPOSITORY                                TAG       IMAGE ID       CREATED          SIZE
+local/gunnidh-kaur-bits-id-2022ab12539    v1        371c9ec654ac   15 minutes ago   477MB
+registry.k8s.io/kube-apiserver            v1.28.3   537434729123   3 months ago     126MB
+registry.k8s.io/kube-scheduler            v1.28.3   6d1b4fd1b182   3 months ago     60.1MB
+registry.k8s.io/kube-controller-manager   v1.28.3   10baa1ca1706   3 months ago     122MB
+registry.k8s.io/kube-proxy                v1.28.3   bfc896cf80fb   3 months ago     73.1MB
+registry.k8s.io/etcd                      3.5.9-0   73deb9a3f702   8 months ago     294MB
+registry.k8s.io/coredns/coredns           v1.10.1   ead0a4a53df8   12 months ago    53.6MB
+registry.k8s.io/pause                     3.9       e6f181688397   16 months ago    744kB
+gcr.io/k8s-minikube/storage-provisioner   v5        6e38f40d628d   2 years ago      31.5MB
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ kubectl get pods
+NAME                                           READY   STATUS    RESTARTS   AGE
+gunnidh-kaur-weather-project-644cd8d5b-4jmnr   1/1     Running   0          6s
+gunnidh-kaur-weather-project-644cd8d5b-cdkdd   1/1     Running   0          8s
+gunnidh-kaur-weather-project-644cd8d5b-zcl4b   1/1     Running   0          5s
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ kubectl get pods
+NAME                                           READY   STATUS    RESTARTS   AGE
+gunnidh-kaur-weather-project-644cd8d5b-4jmnr   1/1     Running   0          79s
+gunnidh-kaur-weather-project-644cd8d5b-cdkdd   1/1     Running   0          81s
+gunnidh-kaur-weather-project-644cd8d5b-zcl4b   1/1     Running   0          78s
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ kubectl apply -f deploy/service.yaml
+service/gunnidh-kaur-weather-project created
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ kubectl get service
+NAME                           TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+gunnidh-kaur-weather-project   LoadBalancer   10.103.34.159   <pending>     3000:31142/TCP   14s
+kubernetes                     ClusterIP      10.96.0.1       <none>        443/TCP          33m
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ kubectl get pods
+NAME                                           READY   STATUS    RESTARTS        AGE
+gunnidh-kaur-weather-project-644cd8d5b-24ggt   1/1     Running   1 (2m14s ago)   6m36s
+gunnidh-kaur-weather-project-644cd8d5b-4jmnr   1/1     Running   1 (4m53s ago)   8m26s
+gunnidh-kaur-weather-project-644cd8d5b-598zd   1/1     Running   1 (4m ago)      6m36s
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ kubectl get service
+NAME                           TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+gunnidh-kaur-weather-project   LoadBalancer   10.103.34.159   <pending>     3000:31142/TCP   55s
+kubernetes                     ClusterIP      10.96.0.1       <none>        443/TCP          33m
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ minikube ip
+192.168.49.2
+
+Ajay@DESKTOP-2NARDCL MINGW64 /c/Gunnidh/m-tech/cloud computing assigment/the-weather-forecasting-main (main)
+$ minikube service gunnidh-kaur-weather-project
+|-----------|------------------------------|-------------|---------------------------|
+| NAMESPACE |             NAME             | TARGET PORT |            URL            |
+|-----------|------------------------------|-------------|---------------------------|
+| default   | gunnidh-kaur-weather-project | http/3000   | http://192.168.49.2:31142 |
+|-----------|------------------------------|-------------|---------------------------|
+🏃  Starting tunnel for service gunnidh-kaur-weather-project.
+|-----------|------------------------------|-------------|------------------------|
+| NAMESPACE |             NAME             | TARGET PORT |          URL           |
+|-----------|------------------------------|-------------|------------------------|
+| default   | gunnidh-kaur-weather-project |             | http://127.0.0.1:50790 |
+|-----------|------------------------------|-------------|------------------------|
+🎉  Opening service default/gunnidh-kaur-weather-project in default browser...
+❗  Because you are using a Docker driver on windows, the terminal needs to be open to run it.
