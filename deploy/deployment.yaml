@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gunnidh-kaur-weather-project
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: gunnidh_kaur_bits_id_2022ab12539
+  template:
+    metadata:
+      labels:
+        app: gunnidh_kaur_bits_id_2022ab12539
+    spec:
+      containers:
+      - name: local-gunnidh-kaur-bits-id-2022ab12539
+        image: local/gunnidh-kaur-bits-id-2022ab12539:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
