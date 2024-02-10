@@ -11,7 +11,7 @@ The app is developed using React.js and material-UI.
 
 ## 💻 Live Demo:
 
-https://the-weather-forecasting.netlify.app
+https://CURRENTLY-WORKING-ON-IT
 
 <br/>
 
@@ -36,17 +36,6 @@ https://the-weather-forecasting.netlify.app
 - `material-ui`
 
 Check `packages.json` for details
-
-<br/>
-
-## 📄 Todos
-
-- [ ] Styled-components
-- [ ] Convert the entire project to TypeScript
-- [ ] Unit Testing
-- [ ] On launch, find user location weather by utilizing GeolocationAPI/GEOCODING
-- [ ] Celcius/Fahrenheit conversion
-- [ ] Dark/Light Mode
 
 <br/>
 Thank You ☺
