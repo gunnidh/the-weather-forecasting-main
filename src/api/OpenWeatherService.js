@@ -1,3 +1,6 @@
+import CloudWatchLogger from '../loger/Logger';
+const logger = new CloudWatchLogger('weather-app-project-log-group', 'weather-app-project-log-stream');
+
 const GEO_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo';
 
 const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5';
@@ -24,6 +27,9 @@ export async function fetchWeatherData(lat, lon) {
 
     const weatherResponse = await weatherPromise.json();
     const forcastResponse = await forcastPromise.json();
+    //Log to AWS cloud watch
+    logger.log(weatherResponse);
+    console.log(weatherResponse);
     return [weatherResponse, forcastResponse];
   } catch (error) {
     console.log(error);
