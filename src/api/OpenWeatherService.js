@@ -1,5 +1,4 @@
-import CloudWatchLogger from '../loger/Logger';
-const logger = new CloudWatchLogger('weather-app-project-log-group', 'weather-app-project-log-stream');
+import AWS from 'aws-sdk'
 
 const GEO_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo';
 
@@ -27,9 +26,25 @@ export async function fetchWeatherData(lat, lon) {
 
     const weatherResponse = await weatherPromise.json();
     const forcastResponse = await forcastPromise.json();
-    //Log to AWS cloud watch
-    logger.log(weatherResponse);
+
+    AWS.config.update({
+      accessKeyId: 'Your access key Id',
+      secretAccessKey: ' your secret access key',
+      region: 'ap-south-1'
+    });
+    const lambda = new AWS.Lambda();
+    const params = {
+      FunctionName: 'weather-app-lambda', /* required */
+      Payload: JSON.stringify( { "RequestId": weatherResponse })
+    };
+
+    lambda.invoke(params,  function (err, data){
+      if (err) console.log(err, err.stack); // an error occurred
+      else console.log('Success, payload', data);  // successful response
+    })
+
     console.log(weatherResponse);
+
     return [weatherResponse, forcastResponse];
   } catch (error) {
     console.log(error);
