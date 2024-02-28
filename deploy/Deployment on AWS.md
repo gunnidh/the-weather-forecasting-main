@@ -74,37 +74,37 @@ CMD ["nginx", "-g", "daemon off;"]
 ### Explanation:
 This Dockerfile is used to build a Docker image for deploying a React.js application with Node.js and NGINX. Let's break it down step by step:
 
-#####`FROM node:16-alpine as build`: 
+##### `FROM node:16-alpine as build`: 
 This line specifies the base image to use for the first stage of the build process. It uses Node.js version 16 with the Alpine Linux distribution.
 
-#####`WORKDIR /app`: 
+##### `WORKDIR /app`: 
 Sets the working directory inside the container to `/app`.
 
-#####`COPY package*.json ./`: 
+##### `COPY package*.json ./`: 
 Copies `package.json` and `package-lock.json` from the host into the `/app` directory in the container.
 
-#####`RUN npm install`: 
+##### `RUN npm install`: 
 Installs the dependencies specified in `package.json`.
 
-#####`COPY . .`: 
+##### `COPY . .`: 
 Copies the entire content of the local directory (where the Dockerfile is located) into the `/app` directory in the container.
 
-#####`RUN npm run build`: 
+##### `RUN npm run build`: 
 Builds the React app inside the container using the npm script defined in `package.json`.
 
-#####`ROM nginx:latest`: 
+##### `ROM nginx:latest`: 
 Specifies the base image for the second stage of the build process, which is NGINX.
 
-#####`COPY --from=build /app/build /usr/share/nginx/html`: 
+##### `COPY --from=build /app/build /usr/share/nginx/html`: 
 Copies the built React app from the first stage (`build`) into the NGINX web server directory (`/usr/share/nginx/html`) in the second stage.
 
-#####`COPY --from=build /app/nginx/nginx.conf /etc/nginx/conf.d/default.conf`: 
+##### `COPY --from=build /app/nginx/nginx.conf /etc/nginx/conf.d/default.conf`: 
 Copies the NGINX configuration file (`nginx.conf`) from the first stage (`build`) into the NGINX configuration directory in the second stage (`/etc/nginx/conf.d/default.conf`).
 
-#####`EXPOSE 3000`: 
+##### `EXPOSE 3000`: 
 Exposes port 3000. However, note that this is typically used for development purposes, but in this Dockerfile, the application is served by NGINX, so this line might not be necessary.
 
-#####`CMD ["nginx", "-g", "daemon off;"]`: 
+##### `CMD ["nginx", "-g", "daemon off;"]`: 
 Specifies the command to run when the container starts. It starts NGINX with the specified options (`-g "daemon off;"` runs NGINX in the foreground without daemonizing).
 
 Overall, this Dockerfile sets up two stages: the first stage for building the React app with Node.js and the second stage for serving the built app with NGINX.
@@ -128,22 +128,22 @@ server {
 ```
 ### Explanation:
 
-#####`listen 3000`:
+##### `listen 3000`:
 This line specifies that NGINX should listen for incoming connections on port 3000.
 
-#####`server_name localhost`: 
+##### `server_name localhost`: 
 This line sets the server name for this NGINX configuration block. In this case, it's set to "localhost", meaning it will respond to requests targeting "localhost".
 
-#####`location / { ... }`: 
+##### `location / { ... }`: 
 This block defines how NGINX should handle requests that match the specified location ("/"). Within this block:
 
-#####`root /usr/share/nginx/html`: 
+##### `root /usr/share/nginx/html`: 
 This line sets the root directory from which NGINX will serve files for this location. In this case, it's set to "/usr/share/nginx/html".
 
-#####`index index.html`: 
+##### `index index.html`: 
 This line specifies the default file to serve if no specific file is requested. In this case, it's set to "index.html".
 
-#####`try_files $uri $uri/ /index.html`: 
+##### `try_files $uri $uri/ /index.html`: 
 This line tells NGINX to attempt to serve the requested file ($uri), then the directory index uri, and if neither is found, serve "index.html". This is commonly used in single-page applications (SPAs) to handle client-side routing. This NGINX configuration block is typically used to serve a static website or a single-page application (SPA) where NGINX handles routing to the client-side application.
 
 <br/>
