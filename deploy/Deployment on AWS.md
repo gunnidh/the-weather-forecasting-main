@@ -32,7 +32,7 @@ With The weather forecasting user can search locations by city name and observe 
 
 <br/>
 
-# ![](../public/docker-logo.png){: width="30px" } Docker Setup
+# <img src="../public/docker-logo.png" width="30px"/> Docker Setup
 
 Create Dockerfile in root directory `/the-weather-forecasting-main/`
 
@@ -111,7 +111,7 @@ Overall, this Dockerfile sets up two stages: the first stage for building the Re
 
 <br/>
 
-# ![](../public/Nginx_logo.png){: width="35px" } Nginx Setup
+# <img src="../public/Nginx_logo.png" width="30px"/> Nginx Setup
 Create nginx in root directory `/the-weather-forecasting-main/nginx` and create `nignx.conf` file. With the following content
 
 ```bash
@@ -149,7 +149,7 @@ This line tells NGINX to attempt to serve the requested file ($uri), then the di
 <br/>
 <br/>
 
-# ![](../public/Amazon_Web_Services_Logo.png){: width="50px" } Deployment of the Weather Forecasting App to AWS
+# <img src="../public/Amazon_Web_Services_Logo.png" width="35px"/> Deployment of the Weather Forecasting App to AWS
 
 ## Introduction
 
