@@ -1,5 +1,5 @@
 # 📑 Report Weather Forecasting App Deployment on AWS
-###### Part-2 Submission by Group-10
+##### Part-2 Submission by Group-10
 
 ## 🔖Executive Summary
 
