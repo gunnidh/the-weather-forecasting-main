@@ -1,7 +1,7 @@
 # 📑 Report Weather Forecasting App Deployment on AWS
 ##### Part-2 Submission by Group-10
 
-## 🔖Executive Summary
+## <img src="../public/exec.png" width="30px"/> Executive Summary
 
 This report documents the development and deployment process of a weather forecasting application build and deployed by Group-10 by leveraging Amazon Web Services (AWS) cloud infrastructure. The application is designed to provide users with accurate weather forecasts while ensuring scalability, reliability, and security through seamless integration of various AWS services.
 
@@ -14,7 +14,7 @@ With The weather forecasting user can search locations by city name and observe 
 <br/>
 
 
-## ✨ Cource code
+## <img src="../public/source code.png" width="55px" /> Source code
 
 - You can find all the sourec code on this link [Github Link: the-weather-forecasting](https://github.com/gunnidh/the-weather-forecasting-main/). 
 
