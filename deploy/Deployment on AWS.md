@@ -1,5 +1,48 @@
-# <img src="../public/report icon.png" width="30px"/> Report: Weather Forecasting App Deployment on AWS
-##### Part-2 Submission by Group-10
+# <img src="../public/report icon.png" width="30px"/> Report
+#### `Part-1 Submission by Group-10`
+#### `Case Study : Airbnb's Migration to AWS and Utilization of Amazon EFS for CI/CD Scaling`
+
+## Introduction:
+
+Airbnb, a global community marketplace connecting property owners and travelers, has undergone significant technological transformations to support its rapid growth since its inception in 2008. A notable transition was the migration to Amazon Web Services (AWS) a year after its launch, a decision rooted in addressing service administration challenges and achieving scalability. Currently, Airbnb operates in nearly 25,000 cities across 192 countries.
+
+## Transition to AWS:
+
+The migration to AWS played a pivotal role in Airbnb's growth. The company leverages AWS services extensively, utilizing 200 Amazon Elastic Compute Cloud (EC2) instances for application, memcache, and search servers. AWS features such as Elastic Load Balancing, Amazon Elastic MapReduce (EMR), Simple Storage Service (S3), and Amazon Relational Database Service (RDS) are integral components of Airbnb's tech stack. The ease of scaling, managing, and customizing the infrastructure, along with features like Multi-Availability Zone (Multi-AZ) deployment for database replication, contributed to a smooth transition with only 15 minutes of downtime.
+
+## Tech Stack:
+
+Airbnb's tech stack comprises ReactJs, AWS AMPLIFY, COGNITO, S3 for static website hosting, CloudFront for CDN, CodeCommit for code repository, Lambda functions for backend APIs, ElastiCache for search functionality, DynamoDB for data storage, CloudWatch Alarms for monitoring, and AWS SES, Pinpoint, and Athena for analytics.
+
+## Amazon EFS for CI/CD Scaling:
+
+Airbnb faced operational challenges with its source control infrastructure, affecting its ability to scale and maintain synchronization across Git mirrors. To address this, Airbnb adopted Amazon Elastic File System (EFS), a scalable solution for Linux-based workloads. By using Amazon EFS, Airbnb established a shared file system that allowed every Git mirror instance to be in sync when changes occurred. This real-time synchronization facilitated the scaling of the continuous integration/continuous delivery (CI/CD) pipeline.
+
+## Queuing Service Implementation:
+
+To ensure synchronization without losing repository changes during the process, Airbnb employed Amazon Simple Queue Service (SQS), a fully managed message queuing service. SQS, with its event-driven queuing approach, allowed Airbnb to handle the high volume of Git traffic effectively. The benefits included maintaining a single file system for syncing GitHub repositories, scaling CI/CD processes, and freeing engineers to focus on system features rather than scaling concerns.
+
+## Conclusion:
+
+Airbnb's strategic decision to migrate to AWS and the subsequent integration of Amazon EFS and SQS showcase a forward-thinking approach to address scalability challenges. The successful implementation not only allowed Airbnb to meet the demands of its expanding online marketplace but also ensured a reliable and efficient source control infrastructure. The case study emphasizes the importance of leveraging cloud services for scaling, optimizing, and future-proofing technology infrastructure in a rapidly growing business environment.
+
+
+<br/>
+<br/>
+
+-------------------------------------------------------
+
+<br/>
+<br/>
+
+
+# <img src="../public/report icon.png" width="30px"/> Report
+#### `Part-2 Submission by Group-10`
+#### `Configuration details, code, and screenshots of part 2`
+
+<br/>
+
+## Weather Forecasting App Deployment on AWS
 
 ## <img src="../public/exec.png" width="30px"/> Executive Summary
 
