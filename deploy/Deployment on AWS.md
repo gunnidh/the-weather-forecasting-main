@@ -1,4 +1,4 @@
-# <img src="../public/report icon.png" width="30px"/> Report Weather Forecasting App Deployment on AWS
+# <img src="../public/report icon.png" width="30px"/> Report: Weather Forecasting App Deployment on AWS
 ##### Part-2 Submission by Group-10
 
 ## <img src="../public/exec.png" width="30px"/> Executive Summary
